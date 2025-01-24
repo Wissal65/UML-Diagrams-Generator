@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+    <uml:Model name="TP4-UML-Diagrams-Generator" xmi:type="uml:Model">
+        <packagedElement name="src.org.mql.java.analyzer.models" xmi:type="uml:Package">
+            <packagedElement name="AnnotationInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="modifiers" type="String"/>
+                <ownedAttribute name="elements" type="List"/>
+                <ownedAttribute name="metaAnnotations" type="List"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="getModifiers" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getMetaAnnotations" returnType="List"/>
+                <ownedOperation name="setMetaAnnotations" returnType="void">
+                    <ownedParameter name="metaAnnotations" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setElements" returnType="void">
+                    <ownedParameter name="elements" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setModifiers" returnType="void">
+                    <ownedParameter name="modifiers" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getElements" returnType="List"/>
+                <association source="AnnotationInfos" target="MethodInfos" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="ClassInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="modifiers" type="String"/>
+                <ownedAttribute name="extendsClasses" type="List"/>
+                <ownedAttribute name="implementsInterfaces" type="List"/>
+                <ownedAttribute name="fields" type="List"/>
+                <ownedAttribute name="methods" type="List"/>
+                <ownedAttribute name="relationships" type="List"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="getModifiers" returnType="String"/>
+                <ownedOperation name="getFields" returnType="List"/>
+                <ownedOperation name="getMethods" returnType="List"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setFields" returnType="void">
+                    <ownedParameter name="fields" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="getRelationships" returnType="List"/>
+                <ownedOperation name="getExtendsClasses" returnType="List"/>
+                <ownedOperation name="setExtendsClasses" returnType="void">
+                    <ownedParameter name="extendsClasses" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setModifiers" returnType="void">
+                    <ownedParameter name="modifiers" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setRelationships" returnType="void">
+                    <ownedParameter name="relationships" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="relationshipExists" returnType="boolean">
+                    <ownedParameter name="source" type="String"/>
+                    <ownedParameter name="target" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="addRelationship" returnType="void">
+                    <ownedParameter name="source" type="String"/>
+                    <ownedParameter name="target" type="String"/>
+                    <ownedParameter name="type" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getImplementsInterfaces" returnType="List"/>
+                <ownedOperation name="detectRelationships" returnType="void">
+                    <ownedParameter name="clazz" type="Class"/>
+                </ownedOperation>
+                <ownedOperation name="setImplementsInterfaces" returnType="void">
+                    <ownedParameter name="implementsInterfaces" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="detectFieldRelationshipType" returnType="String">
+                    <ownedParameter name="field" type="Field"/>
+                    <ownedParameter name="clazz" type="Class"/>
+                </ownedOperation>
+                <ownedOperation name="setMethods" returnType="void">
+                    <ownedParameter name="methods" type="List"/>
+                </ownedOperation>
+                <association source="ClassInfos" target="FieldInfos" type="AGGREGATION"/>
+                <association source="ClassInfos" target="MethodInfos" type="AGGREGATION"/>
+                <association source="ClassInfos" target="RelationShips" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="EnumInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="modifiers" type="String"/>
+                <ownedAttribute name="constants" type="List"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="getModifiers" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getConstants" returnType="List"/>
+                <ownedOperation name="setModifiers" returnType="void">
+                    <ownedParameter name="modifiers" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setConstants" returnType="void">
+                    <ownedParameter name="constants" type="List"/>
+                </ownedOperation>
+            </packagedElement>
+            <packagedElement name="FieldInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="type" type="String"/>
+                <ownedAttribute name="modifiers" type="String"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="getModifiers" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getType" returnType="String"/>
+                <ownedOperation name="setModifiers" returnType="void">
+                    <ownedParameter name="modifiers" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setType" returnType="void">
+                    <ownedParameter name="type" type="String"/>
+                </ownedOperation>
+            </packagedElement>
+            <packagedElement name="InterfaceInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="modifiers" type="String"/>
+                <ownedAttribute name="extendedInterfaces" type="List"/>
+                <ownedAttribute name="methods" type="List"/>
+                <ownedAttribute name="constants" type="List"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="getModifiers" returnType="String"/>
+                <ownedOperation name="getMethods" returnType="List"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getConstants" returnType="List"/>
+                <ownedOperation name="setModifiers" returnType="void">
+                    <ownedParameter name="modifiers" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setConstants" returnType="void">
+                    <ownedParameter name="constants" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="getExtendedInterfaces" returnType="List"/>
+                <ownedOperation name="setExtendedInterfaces" returnType="void">
+                    <ownedParameter name="extendedInterfaces" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setMethods" returnType="void">
+                    <ownedParameter name="methods" type="List"/>
+                </ownedOperation>
+                <association source="InterfaceInfos" target="MethodInfos" type="AGGREGATION"/>
+                <association source="InterfaceInfos" target="FieldInfos" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="MethodInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="returnType" type="String"/>
+                <ownedAttribute name="parameters" type="List"/>
+                <ownedAttribute name="modifiers" type="String"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="getModifiers" returnType="String"/>
+                <ownedOperation name="getReturnType" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getParameters" returnType="List"/>
+                <ownedOperation name="setParameters" returnType="void">
+                    <ownedParameter name="parameters" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setModifiers" returnType="void">
+                    <ownedParameter name="modifiers" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setReturnType" returnType="void">
+                    <ownedParameter name="returnType" type="String"/>
+                </ownedOperation>
+                <association source="MethodInfos" target="ParameterInfos" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="PackageInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="classes" type="List"/>
+                <ownedAttribute name="interfaces" type="List"/>
+                <ownedAttribute name="enums" type="List"/>
+                <ownedAttribute name="annotations" type="List"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="getInterfaces" returnType="List"/>
+                <ownedOperation name="getClasses" returnType="List"/>
+                <ownedOperation name="getAnnotations" returnType="List"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setInterfaces" returnType="void">
+                    <ownedParameter name="interfaces" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setAnnotations" returnType="void">
+                    <ownedParameter name="annotations" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="getEnums" returnType="List"/>
+                <ownedOperation name="setClasses" returnType="void">
+                    <ownedParameter name="classes" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setEnums" returnType="void">
+                    <ownedParameter name="enums" type="List"/>
+                </ownedOperation>
+                <association source="PackageInfos" target="ClassInfos" type="AGGREGATION"/>
+                <association source="PackageInfos" target="InterfaceInfos" type="AGGREGATION"/>
+                <association source="PackageInfos" target="EnumInfos" type="AGGREGATION"/>
+                <association source="PackageInfos" target="AnnotationInfos" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="ParameterInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="type" type="String"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getType" returnType="String"/>
+                <ownedOperation name="setType" returnType="void">
+                    <ownedParameter name="type" type="String"/>
+                </ownedOperation>
+            </packagedElement>
+            <packagedElement name="ProjectInfos" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="path" type="String"/>
+                <ownedAttribute name="packages" type="List"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="getPackages" returnType="List"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getPath" returnType="String"/>
+                <ownedOperation name="setPackages" returnType="void">
+                    <ownedParameter name="packages" type="List"/>
+                </ownedOperation>
+                <ownedOperation name="setPath" returnType="void">
+                    <ownedParameter name="path" type="String"/>
+                </ownedOperation>
+                <association source="ProjectInfos" target="PackageInfos" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="RelationShips" xmi:type="uml:Class">
+                <ownedAttribute name="source" type="String"/>
+                <ownedAttribute name="target" type="String"/>
+                <ownedAttribute name="type" type="String"/>
+                <ownedOperation name="getType" returnType="String"/>
+                <ownedOperation name="getTarget" returnType="String"/>
+                <ownedOperation name="setTarget" returnType="void">
+                    <ownedParameter name="target" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getSource" returnType="String"/>
+                <ownedOperation name="setSource" returnType="void">
+                    <ownedParameter name="source" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setType" returnType="void">
+                    <ownedParameter name="type" type="String"/>
+                </ownedOperation>
+            </packagedElement>
+        </packagedElement>
+        <packagedElement name="src.org.mql.java.analyzer.parser" xmi:type="uml:Package">
+            <packagedElement name="ProjectParser" xmi:type="uml:Class">
+                <ownedOperation name="parseProject" returnType="ProjectInfos">
+                    <ownedParameter name="projectPath" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="containsJavaFiles" returnType="boolean">
+                    <ownedParameter name="directory" type="File"/>
+                </ownedOperation>
+                <ownedOperation name="extractClasses" returnType="void">
+                    <ownedParameter name="packageDir" type="File"/>
+                    <ownedParameter name="packageInfos" type="PackageInfos"/>
+                </ownedOperation>
+                <ownedOperation name="extractProjectName" returnType="String">
+                    <ownedParameter name="projectPath" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="exploreDirectory" returnType="void">
+                    <ownedParameter name="directory" type="File"/>
+                    <ownedParameter name="packages" type="List"/>
+                    <ownedParameter name="parentPackage" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="extractPackages" returnType="List">
+                    <ownedParameter name="projectPath" type="String"/>
+                </ownedOperation>
+                <association source="ProjectParser" target="PackageInfos" type="USAGE"/>
+            </packagedElement>
+        </packagedElement>
+        <packagedElement name="src.org.mql.java.analyzer.ui" xmi:type="uml:Package">
+            <packagedElement name="ConsoleView" xmi:type="uml:Class">
+                <ownedAttribute name="projectPrinter" type="ProjectPrinter"/>
+                <ownedOperation name="main" returnType="void">
+                    <ownedParameter name="args" type="String[]"/>
+                </ownedOperation>
+                <ownedOperation name="test3" returnType="void"/>
+                <ownedOperation name="test2" returnType="void"/>
+                <ownedOperation name="test1" returnType="void"/>
+                <ownedOperation name="test4" returnType="void"/>
+                <association source="ConsoleView" target="ProjectPrinter" type="AGGREGATION"/>
+                <association source="ConsoleView" target="String[]" type="USAGE"/>
+            </packagedElement>
+            <packagedElement name="ProjectPrinter" xmi:type="uml:Class">
+                <ownedOperation name="printClassTree" returnType="void">
+                    <ownedParameter name="clazz" type="ClassInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printPackageTree" returnType="void">
+                    <ownedParameter name="pkg" type="PackageInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printEnumTree" returnType="void">
+                    <ownedParameter name="enumInfo" type="EnumInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printInterfaceTree" returnType="void">
+                    <ownedParameter name="interfaceInfo" type="InterfaceInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printAnnotationTree" returnType="void">
+                    <ownedParameter name="annotationInfo" type="AnnotationInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getRelationTypeSymbol" returnType="String">
+                    <ownedParameter name="type" type="String"/>
+                </ownedOperation>
+                <association source="ProjectPrinter" target="ClassInfos" type="USAGE"/>
+                <association source="ProjectPrinter" target="PackageInfos" type="USAGE"/>
+                <association source="ProjectPrinter" target="EnumInfos" type="USAGE"/>
+                <association source="ProjectPrinter" target="InterfaceInfos" type="USAGE"/>
+                <association source="ProjectPrinter" target="AnnotationInfos" type="USAGE"/>
+            </packagedElement>
+            <packagedElement name="Test" xmi:type="uml:Class">
+                <ownedOperation name="main" returnType="void">
+                    <ownedParameter name="args" type="String[]"/>
+                </ownedOperation>
+                <ownedOperation name="printClassTree" returnType="void">
+                    <ownedParameter name="clazz" type="ClassInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printPackageTree" returnType="void">
+                    <ownedParameter name="pkg" type="PackageInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printEnumTree" returnType="void">
+                    <ownedParameter name="enumInfo" type="EnumInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printInterfaceTree" returnType="void">
+                    <ownedParameter name="interfaceInfo" type="InterfaceInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="printAnnotationTree" returnType="void">
+                    <ownedParameter name="annotationInfo" type="AnnotationInfos"/>
+                    <ownedParameter name="prefix" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getRelationTypeSymbol" returnType="String">
+                    <ownedParameter name="type" type="String"/>
+                </ownedOperation>
+                <association source="Test" target="String[]" type="USAGE"/>
+                <association source="Test" target="ClassInfos" type="USAGE"/>
+                <association source="Test" target="PackageInfos" type="USAGE"/>
+                <association source="Test" target="EnumInfos" type="USAGE"/>
+                <association source="Test" target="InterfaceInfos" type="USAGE"/>
+                <association source="Test" target="AnnotationInfos" type="USAGE"/>
+            </packagedElement>
+        </packagedElement>
+        <packagedElement name="src.org.mql.java.analyzer.xml" xmi:type="uml:Package">
+            <packagedElement name="NodeXML" xmi:type="uml:Class">
+                <ownedOperation name="createEnumElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="enumInfo" type="EnumInfos"/>
+                </ownedOperation>
+                <ownedOperation name="addMethodElement" returnType="void">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="parentElement" type="Element"/>
+                    <ownedParameter name="method" type="MethodInfos"/>
+                </ownedOperation>
+                <ownedOperation name="addFieldElement" returnType="void">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="parentElement" type="Element"/>
+                    <ownedParameter name="field" type="FieldInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createClassElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="clazz" type="ClassInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createPackageElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="pkg" type="PackageInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createAnnotationElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="annotationInfo" type="AnnotationInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createInterfaceElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="interfaceInfo" type="InterfaceInfos"/>
+                </ownedOperation>
+                <ownedOperation name="addRelationshipElement" returnType="void">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="parentElement" type="Element"/>
+                    <ownedParameter name="relationship" type="RelationShips"/>
+                </ownedOperation>
+                <association source="NodeXML" target="Document" type="USAGE"/>
+                <association source="NodeXML" target="EnumInfos" type="USAGE"/>
+                <association source="NodeXML" target="Element" type="USAGE"/>
+                <association source="NodeXML" target="MethodInfos" type="USAGE"/>
+                <association source="NodeXML" target="FieldInfos" type="USAGE"/>
+                <association source="NodeXML" target="ClassInfos" type="USAGE"/>
+                <association source="NodeXML" target="PackageInfos" type="USAGE"/>
+                <association source="NodeXML" target="AnnotationInfos" type="USAGE"/>
+                <association source="NodeXML" target="InterfaceInfos" type="USAGE"/>
+                <association source="NodeXML" target="RelationShips" type="USAGE"/>
+            </packagedElement>
+            <packagedElement name="XMIGenerator" xmi:type="uml:Class">
+                <ownedOperation name="createFieldElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="field" type="FieldInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createEnumElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="enumInfo" type="EnumInfos"/>
+                </ownedOperation>
+                <ownedOperation name="generateXMI" returnType="void">
+                    <ownedParameter name="project" type="ProjectInfos"/>
+                    <ownedParameter name="outputFilePath" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="createClassElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="clazz" type="ClassInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createPackageElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="pkg" type="PackageInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createParameterElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="parameter" type="ParameterInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createAnnotationElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="annotationInfo" type="AnnotationInfos"/>
+                </ownedOperation>
+                <ownedOperation name="createRelationElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="relationship" type="RelationShips"/>
+                </ownedOperation>
+                <ownedOperation name="createMethodElement" returnType="Element">
+                    <ownedParameter name="doc" type="Document"/>
+                    <ownedParameter name="method" type="MethodInfos"/>
+                </ownedOperation>
+                <association source="XMIGenerator" target="Document" type="USAGE"/>
+                <association source="XMIGenerator" target="FieldInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="EnumInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="ProjectInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="ClassInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="PackageInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="ParameterInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="AnnotationInfos" type="USAGE"/>
+                <association source="XMIGenerator" target="RelationShips" type="USAGE"/>
+                <association source="XMIGenerator" target="MethodInfos" type="USAGE"/>
+            </packagedElement>
+            <packagedElement name="XMLGenerator" xmi:type="uml:Class">
+                <ownedOperation name="generateXML" returnType="void">
+                    <ownedParameter name="project" type="ProjectInfos"/>
+                    <ownedParameter name="outputFilePath" type="String"/>
+                </ownedOperation>
+                <association source="XMLGenerator" target="ProjectInfos" type="USAGE"/>
+            </packagedElement>
+            <packagedElement name="XMLParser" xmi:type="uml:Class">
+                <ownedOperation name="parseClassElement" returnType="ClassInfos">
+                    <ownedParameter name="classElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseEnumElement" returnType="EnumInfos">
+                    <ownedParameter name="enumElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseMethodElement" returnType="MethodInfos">
+                    <ownedParameter name="methodElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseFieldElement" returnType="FieldInfos">
+                    <ownedParameter name="fieldElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseInterfaceElement" returnType="InterfaceInfos">
+                    <ownedParameter name="interfaceElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parsePackageElement" returnType="PackageInfos">
+                    <ownedParameter name="packageElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseRelationshipElement" returnType="RelationShips">
+                    <ownedParameter name="relationshipElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseParameterElement" returnType="ParameterInfos">
+                    <ownedParameter name="parameterElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseAnnotationElement" returnType="AnnotationInfos">
+                    <ownedParameter name="annotationElement" type="Element"/>
+                </ownedOperation>
+                <ownedOperation name="parseXML" returnType="ProjectInfos">
+                    <ownedParameter name="filePath" type="String"/>
+                </ownedOperation>
+                <association source="XMLParser" target="Element" type="USAGE"/>
+            </packagedElement>
+        </packagedElement>
+        <packagedElement name="src.org.mql.java.examples.annotations" xmi:type="uml:Package">
+            <packagedElement name="CustomAnnotation" xmi:type="uml:Class">
+                <ownedAttribute name="Retention"/>
+            </packagedElement>
+        </packagedElement>
+        <packagedElement name="src.org.mql.java.examples.enums" xmi:type="uml:Package">
+            <packagedElement name="ProductCategory" xmi:type="uml:Enumeration">
+                <ownedLiteral name="CLOTHING"/>
+                <ownedLiteral name="FOOD"/>
+            </packagedElement>
+            <packagedElement name="Status" xmi:type="uml:Enumeration">
+                <ownedLiteral name="ACTIVE"/>
+                <ownedLiteral name="INACTIVE"/>
+            </packagedElement>
+        </packagedElement>
+        <packagedElement name="src.org.mql.java.examples.models" xmi:type="uml:Package">
+            <packagedElement name="Address" xmi:type="uml:Class">
+                <ownedAttribute name="country" type="String"/>
+                <ownedAttribute name="city" type="String"/>
+                <ownedAttribute name="street" type="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="getCountry" returnType="String"/>
+                <ownedOperation name="getCity" returnType="String"/>
+                <ownedOperation name="setCountry" returnType="void">
+                    <ownedParameter name="country" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setCity" returnType="void">
+                    <ownedParameter name="city" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getStreet" returnType="String"/>
+                <ownedOperation name="setStreet" returnType="void">
+                    <ownedParameter name="street" type="String"/>
+                </ownedOperation>
+            </packagedElement>
+            <packagedElement name="Person" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="age" type="int"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="setAge" returnType="void">
+                    <ownedParameter name="age" type="int"/>
+                </ownedOperation>
+                <ownedOperation name="getAge" returnType="int"/>
+            </packagedElement>
+            <packagedElement name="Product" xmi:type="uml:Class">
+                <ownedAttribute name="name" type="String"/>
+                <ownedAttribute name="price" type="double"/>
+                <ownedAttribute name="category" type="ProductCategory"/>
+                <ownedOperation name="getName" returnType="String"/>
+                <ownedOperation name="toString" returnType="String"/>
+                <ownedOperation name="setName" returnType="void">
+                    <ownedParameter name="name" type="String"/>
+                </ownedOperation>
+                <ownedOperation name="getCategory" returnType="ProductCategory"/>
+                <ownedOperation name="setCategory" returnType="void">
+                    <ownedParameter name="category" type="ProductCategory"/>
+                </ownedOperation>
+                <ownedOperation name="applyReduction" returnType="void">
+                    <ownedParameter name="reduction" type="Reduction"/>
+                </ownedOperation>
+                <ownedOperation name="setPrice" returnType="void">
+                    <ownedParameter name="price" type="double"/>
+                </ownedOperation>
+                <ownedOperation name="getPrice" returnType="double"/>
+                <association source="Product" target="ProductCategory" type="COMPOSITION"/>
+                <association source="Product" target="Reduction" type="USAGE"/>
+            </packagedElement>
+            <packagedElement name="Reduction" xmi:type="uml:Class">
+                <ownedAttribute name="amount" type="double"/>
+                <ownedOperation name="setAmount" returnType="void">
+                    <ownedParameter name="amount" type="double"/>
+                </ownedOperation>
+                <ownedOperation name="getAmount" returnType="double"/>
+            </packagedElement>
+            <packagedElement name="ShoppingCart" xmi:type="uml:Class">
+                <ownedAttribute name="products" type="List"/>
+                <ownedOperation name="getProducts" returnType="List"/>
+                <ownedOperation name="removeProduct" returnType="void">
+                    <ownedParameter name="product" type="Product"/>
+                </ownedOperation>
+                <ownedOperation name="addProduct" returnType="void">
+                    <ownedParameter name="product" type="Product"/>
+                </ownedOperation>
+                <association source="ShoppingCart" target="Product" type="AGGREGATION"/>
+            </packagedElement>
+            <packagedElement name="User" xmi:type="uml:Class">
+                <ownedAttribute name="serialVersionUID" type="long"/>
+                <ownedAttribute name="status" type="Status"/>
+                <ownedAttribute name="address" type="Address"/>
+                <ownedAttribute name="cart" type="ShoppingCart"/>
+                <ownedOperation name="getAddress" returnType="Address"/>
+                <ownedOperation name="getCart" returnType="ShoppingCart"/>
+                <ownedOperation name="getStatus" returnType="Status"/>
+                <ownedOperation name="setStatus" returnType="void">
+                    <ownedParameter name="status" type="Status"/>
+                </ownedOperation>
+                <ownedOperation name="setAddress" returnType="void">
+                    <ownedParameter name="address" type="Address"/>
+                </ownedOperation>
+                <ownedOperation name="setCart" returnType="void">
+                    <ownedParameter name="cart" type="ShoppingCart"/>
+                </ownedOperation>
+                <association source="User" target="Status" type="COMPOSITION"/>
+                <association source="User" target="Address" type="COMPOSITION"/>
+                <association source="User" target="ShoppingCart" type="AGGREGATION"/>
+            </packagedElement>
+        </packagedElement>
+    </uml:Model>
+</xmi:XMI>

@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="TP4-UML-Diagrams-Generator" path="C:\Users\user\git\repository\TP4-UML-Diagrams-Generator">
+    <package name="org.mql.java.analyzer.models">
+        <class modifiers="public" name="AnnotationInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="modifiers" type="String"/>
+            <field modifiers="private" name="elements" type="List"/>
+            <field modifiers="private" name="metaAnnotations" type="List"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="getModifiers" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getMetaAnnotations" returnType="List"/>
+            <method modifiers="public" name="setModifiers" returnType="void">
+                <parameter name="modifiers" type="String"/>
+            </method>
+            <method modifiers="public" name="setElements" returnType="void">
+                <parameter name="elements" type="List"/>
+            </method>
+            <method modifiers="public" name="setMetaAnnotations" returnType="void">
+                <parameter name="metaAnnotations" type="List"/>
+            </method>
+            <method modifiers="public" name="getElements" returnType="List"/>
+            <relationship source="AnnotationInfos" target="MethodInfos" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="ClassInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="modifiers" type="String"/>
+            <field modifiers="private" name="extendsClasses" type="List"/>
+            <field modifiers="private" name="implementsInterfaces" type="List"/>
+            <field modifiers="private" name="fields" type="List"/>
+            <field modifiers="private" name="methods" type="List"/>
+            <field modifiers="private" name="relationships" type="List"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="getModifiers" returnType="String"/>
+            <method modifiers="public" name="getFields" returnType="List"/>
+            <method modifiers="public" name="getMethods" returnType="List"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="setFields" returnType="void">
+                <parameter name="fields" type="List"/>
+            </method>
+            <method modifiers="public" name="getExtendsClasses" returnType="List"/>
+            <method modifiers="public" name="getRelationships" returnType="List"/>
+            <method modifiers="public" name="setModifiers" returnType="void">
+                <parameter name="modifiers" type="String"/>
+            </method>
+            <method modifiers="public" name="setExtendsClasses" returnType="void">
+                <parameter name="extendsClasses" type="List"/>
+            </method>
+            <method modifiers="public" name="setRelationships" returnType="void">
+                <parameter name="relationships" type="List"/>
+            </method>
+            <method modifiers="private" name="addRelationship" returnType="void">
+                <parameter name="source" type="String"/>
+                <parameter name="target" type="String"/>
+                <parameter name="type" type="String"/>
+            </method>
+            <method modifiers="private" name="relationshipExists" returnType="boolean">
+                <parameter name="source" type="String"/>
+                <parameter name="target" type="String"/>
+            </method>
+            <method modifiers="private" name="detectRelationships" returnType="void">
+                <parameter name="clazz" type="Class"/>
+            </method>
+            <method modifiers="public" name="getImplementsInterfaces" returnType="List"/>
+            <method modifiers="public" name="setImplementsInterfaces" returnType="void">
+                <parameter name="implementsInterfaces" type="List"/>
+            </method>
+            <method modifiers="private" name="detectFieldRelationshipType" returnType="String">
+                <parameter name="field" type="Field"/>
+                <parameter name="clazz" type="Class"/>
+            </method>
+            <method modifiers="public" name="setMethods" returnType="void">
+                <parameter name="methods" type="List"/>
+            </method>
+            <relationship source="ClassInfos" target="FieldInfos" type="AGGREGATION"/>
+            <relationship source="ClassInfos" target="MethodInfos" type="AGGREGATION"/>
+            <relationship source="ClassInfos" target="RelationShips" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="EnumInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="modifiers" type="String"/>
+            <field modifiers="private" name="constants" type="List"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="getModifiers" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getConstants" returnType="List"/>
+            <method modifiers="public" name="setModifiers" returnType="void">
+                <parameter name="modifiers" type="String"/>
+            </method>
+            <method modifiers="public" name="setConstants" returnType="void">
+                <parameter name="constants" type="List"/>
+            </method>
+        </class>
+        <class modifiers="public" name="FieldInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="type" type="String"/>
+            <field modifiers="private" name="modifiers" type="String"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="getModifiers" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getType" returnType="String"/>
+            <method modifiers="public" name="setModifiers" returnType="void">
+                <parameter name="modifiers" type="String"/>
+            </method>
+            <method modifiers="public" name="setType" returnType="void">
+                <parameter name="type" type="String"/>
+            </method>
+        </class>
+        <class modifiers="public" name="InterfaceInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="modifiers" type="String"/>
+            <field modifiers="private" name="extendedInterfaces" type="List"/>
+            <field modifiers="private" name="methods" type="List"/>
+            <field modifiers="private" name="constants" type="List"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="getModifiers" returnType="String"/>
+            <method modifiers="public" name="getMethods" returnType="List"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getConstants" returnType="List"/>
+            <method modifiers="public" name="setModifiers" returnType="void">
+                <parameter name="modifiers" type="String"/>
+            </method>
+            <method modifiers="public" name="setConstants" returnType="void">
+                <parameter name="constants" type="List"/>
+            </method>
+            <method modifiers="public" name="setExtendedInterfaces" returnType="void">
+                <parameter name="extendedInterfaces" type="List"/>
+            </method>
+            <method modifiers="public" name="getExtendedInterfaces" returnType="List"/>
+            <method modifiers="public" name="setMethods" returnType="void">
+                <parameter name="methods" type="List"/>
+            </method>
+            <relationship source="InterfaceInfos" target="MethodInfos" type="AGGREGATION"/>
+            <relationship source="InterfaceInfos" target="FieldInfos" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="MethodInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="returnType" type="String"/>
+            <field modifiers="private" name="parameters" type="List"/>
+            <field modifiers="private" name="modifiers" type="String"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="getModifiers" returnType="String"/>
+            <method modifiers="public" name="getReturnType" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getParameters" returnType="List"/>
+            <method modifiers="public" name="setParameters" returnType="void">
+                <parameter name="parameters" type="List"/>
+            </method>
+            <method modifiers="public" name="setModifiers" returnType="void">
+                <parameter name="modifiers" type="String"/>
+            </method>
+            <method modifiers="public" name="setReturnType" returnType="void">
+                <parameter name="returnType" type="String"/>
+            </method>
+            <relationship source="MethodInfos" target="ParameterInfos" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="PackageInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="classes" type="List"/>
+            <field modifiers="private" name="interfaces" type="List"/>
+            <field modifiers="private" name="enums" type="List"/>
+            <field modifiers="private" name="annotations" type="List"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="getInterfaces" returnType="List"/>
+            <method modifiers="public" name="getClasses" returnType="List"/>
+            <method modifiers="public" name="getAnnotations" returnType="List"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="setInterfaces" returnType="void">
+                <parameter name="interfaces" type="List"/>
+            </method>
+            <method modifiers="public" name="getEnums" returnType="List"/>
+            <method modifiers="public" name="setAnnotations" returnType="void">
+                <parameter name="annotations" type="List"/>
+            </method>
+            <method modifiers="public" name="setEnums" returnType="void">
+                <parameter name="enums" type="List"/>
+            </method>
+            <method modifiers="public" name="setClasses" returnType="void">
+                <parameter name="classes" type="List"/>
+            </method>
+            <relationship source="PackageInfos" target="ClassInfos" type="AGGREGATION"/>
+            <relationship source="PackageInfos" target="InterfaceInfos" type="AGGREGATION"/>
+            <relationship source="PackageInfos" target="EnumInfos" type="AGGREGATION"/>
+            <relationship source="PackageInfos" target="AnnotationInfos" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="ParameterInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="type" type="String"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getType" returnType="String"/>
+            <method modifiers="public" name="setType" returnType="void">
+                <parameter name="type" type="String"/>
+            </method>
+        </class>
+        <class modifiers="public" name="ProjectInfos">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="path" type="String"/>
+            <field modifiers="private" name="packages" type="List"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="getPackages" returnType="List"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getPath" returnType="String"/>
+            <method modifiers="public" name="setPath" returnType="void">
+                <parameter name="path" type="String"/>
+            </method>
+            <method modifiers="public" name="setPackages" returnType="void">
+                <parameter name="packages" type="List"/>
+            </method>
+            <relationship source="ProjectInfos" target="PackageInfos" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="RelationShips">
+            <field modifiers="private" name="source" type="String"/>
+            <field modifiers="private" name="target" type="String"/>
+            <field modifiers="private" name="type" type="String"/>
+            <method modifiers="public" name="getType" returnType="String"/>
+            <method modifiers="public" name="getTarget" returnType="String"/>
+            <method modifiers="public" name="setTarget" returnType="void">
+                <parameter name="target" type="String"/>
+            </method>
+            <method modifiers="public" name="getSource" returnType="String"/>
+            <method modifiers="public" name="setSource" returnType="void">
+                <parameter name="source" type="String"/>
+            </method>
+            <method modifiers="public" name="setType" returnType="void">
+                <parameter name="type" type="String"/>
+            </method>
+        </class>
+    </package>
+    <package name="org.mql.java.analyzer.parser">
+        <class modifiers="public" name="ProjectParser">
+            <method modifiers="public" name="parseProject" returnType="ProjectInfos">
+                <parameter name="projectPath" type="String"/>
+            </method>
+            <method modifiers="private" name="extractProjectName" returnType="String">
+                <parameter name="projectPath" type="String"/>
+            </method>
+            <method modifiers="private" name="containsJavaFiles" returnType="boolean">
+                <parameter name="directory" type="File"/>
+            </method>
+            <method modifiers="private" name="extractPackages" returnType="List">
+                <parameter name="projectPath" type="String"/>
+            </method>
+            <method modifiers="private" name="exploreDirectory" returnType="void">
+                <parameter name="directory" type="File"/>
+                <parameter name="packages" type="List"/>
+                <parameter name="parentPackage" type="String"/>
+            </method>
+            <method modifiers="private" name="extractClasses" returnType="void">
+                <parameter name="packageDir" type="File"/>
+                <parameter name="packageInfos" type="PackageInfos"/>
+            </method>
+            <relationship source="ProjectParser" target="PackageInfos" type="USAGE"/>
+        </class>
+    </package>
+    <package name="org.mql.java.analyzer.ui">
+        <class modifiers="public" name="ConsoleView">
+            <field modifiers="private" name="projectPrinter" type="ProjectPrinter"/>
+            <method modifiers="public static" name="main" returnType="void">
+                <parameter name="args" type="String[]"/>
+            </method>
+            <method modifiers="" name="test2" returnType="void"/>
+            <method modifiers="" name="test4" returnType="void"/>
+            <method modifiers="" name="test1" returnType="void"/>
+            <method modifiers="" name="test3" returnType="void"/>
+            <relationship source="ConsoleView" target="ProjectPrinter" type="AGGREGATION"/>
+            <relationship source="ConsoleView" target="String[]" type="USAGE"/>
+        </class>
+        <class modifiers="public" name="ProjectPrinter">
+            <method modifiers="public" name="printEnumTree" returnType="void">
+                <parameter name="enumInfo" type="EnumInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="public" name="printPackageTree" returnType="void">
+                <parameter name="pkg" type="PackageInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="public" name="printInterfaceTree" returnType="void">
+                <parameter name="interfaceInfo" type="InterfaceInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="public" name="printClassTree" returnType="void">
+                <parameter name="clazz" type="ClassInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="public" name="printAnnotationTree" returnType="void">
+                <parameter name="annotationInfo" type="AnnotationInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="private" name="getRelationTypeSymbol" returnType="String">
+                <parameter name="type" type="String"/>
+            </method>
+            <relationship source="ProjectPrinter" target="EnumInfos" type="USAGE"/>
+            <relationship source="ProjectPrinter" target="PackageInfos" type="USAGE"/>
+            <relationship source="ProjectPrinter" target="InterfaceInfos" type="USAGE"/>
+            <relationship source="ProjectPrinter" target="ClassInfos" type="USAGE"/>
+            <relationship source="ProjectPrinter" target="AnnotationInfos" type="USAGE"/>
+        </class>
+        <class modifiers="public" name="Test">
+            <method modifiers="public static" name="main" returnType="void">
+                <parameter name="args" type="String[]"/>
+            </method>
+            <method modifiers="private static" name="printEnumTree" returnType="void">
+                <parameter name="enumInfo" type="EnumInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="private static" name="printPackageTree" returnType="void">
+                <parameter name="pkg" type="PackageInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="private static" name="printInterfaceTree" returnType="void">
+                <parameter name="interfaceInfo" type="InterfaceInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="private static" name="printClassTree" returnType="void">
+                <parameter name="clazz" type="ClassInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="private static" name="printAnnotationTree" returnType="void">
+                <parameter name="annotationInfo" type="AnnotationInfos"/>
+                <parameter name="prefix" type="String"/>
+            </method>
+            <method modifiers="private static" name="getRelationTypeSymbol" returnType="String">
+                <parameter name="type" type="String"/>
+            </method>
+            <relationship source="Test" target="String[]" type="USAGE"/>
+            <relationship source="Test" target="EnumInfos" type="USAGE"/>
+            <relationship source="Test" target="PackageInfos" type="USAGE"/>
+            <relationship source="Test" target="InterfaceInfos" type="USAGE"/>
+            <relationship source="Test" target="ClassInfos" type="USAGE"/>
+            <relationship source="Test" target="AnnotationInfos" type="USAGE"/>
+        </class>
+    </package>
+    <package name="org.mql.java.analyzer.xml">
+        <class modifiers="public" name="NodeXML">
+            <method modifiers="public static" name="addMethodElement" returnType="void">
+                <parameter name="doc" type="Document"/>
+                <parameter name="parentElement" type="Element"/>
+                <parameter name="method" type="MethodInfos"/>
+            </method>
+            <method modifiers="public static" name="createClassElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="clazz" type="ClassInfos"/>
+            </method>
+            <method modifiers="public static" name="addFieldElement" returnType="void">
+                <parameter name="doc" type="Document"/>
+                <parameter name="parentElement" type="Element"/>
+                <parameter name="field" type="FieldInfos"/>
+            </method>
+            <method modifiers="public static" name="createEnumElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="enumInfo" type="EnumInfos"/>
+            </method>
+            <method modifiers="public static" name="addRelationshipElement" returnType="void">
+                <parameter name="doc" type="Document"/>
+                <parameter name="parentElement" type="Element"/>
+                <parameter name="relationship" type="RelationShips"/>
+            </method>
+            <method modifiers="public static" name="createPackageElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="pkg" type="PackageInfos"/>
+            </method>
+            <method modifiers="public static" name="createInterfaceElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="interfaceInfo" type="InterfaceInfos"/>
+            </method>
+            <method modifiers="public static" name="createAnnotationElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="annotationInfo" type="AnnotationInfos"/>
+            </method>
+            <relationship source="NodeXML" target="Document" type="USAGE"/>
+            <relationship source="NodeXML" target="Element" type="USAGE"/>
+            <relationship source="NodeXML" target="MethodInfos" type="USAGE"/>
+            <relationship source="NodeXML" target="ClassInfos" type="USAGE"/>
+            <relationship source="NodeXML" target="FieldInfos" type="USAGE"/>
+            <relationship source="NodeXML" target="EnumInfos" type="USAGE"/>
+            <relationship source="NodeXML" target="RelationShips" type="USAGE"/>
+            <relationship source="NodeXML" target="PackageInfos" type="USAGE"/>
+            <relationship source="NodeXML" target="InterfaceInfos" type="USAGE"/>
+            <relationship source="NodeXML" target="AnnotationInfos" type="USAGE"/>
+        </class>
+        <class modifiers="public" name="XMIGenerator">
+            <method modifiers="public static" name="generateXMI" returnType="void">
+                <parameter name="project" type="ProjectInfos"/>
+                <parameter name="outputFilePath" type="String"/>
+            </method>
+            <method modifiers="private static" name="createClassElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="clazz" type="ClassInfos"/>
+            </method>
+            <method modifiers="private static" name="createFieldElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="field" type="FieldInfos"/>
+            </method>
+            <method modifiers="private static" name="createEnumElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="enumInfo" type="EnumInfos"/>
+            </method>
+            <method modifiers="private static" name="createPackageElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="pkg" type="PackageInfos"/>
+            </method>
+            <method modifiers="private static" name="createAnnotationElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="annotationInfo" type="AnnotationInfos"/>
+            </method>
+            <method modifiers="private static" name="createMethodElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="method" type="MethodInfos"/>
+            </method>
+            <method modifiers="private static" name="createRelationElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="relationship" type="RelationShips"/>
+            </method>
+            <method modifiers="private static" name="createParameterElement" returnType="Element">
+                <parameter name="doc" type="Document"/>
+                <parameter name="parameter" type="ParameterInfos"/>
+            </method>
+            <relationship source="XMIGenerator" target="ProjectInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="Document" type="USAGE"/>
+            <relationship source="XMIGenerator" target="ClassInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="FieldInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="EnumInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="PackageInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="AnnotationInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="MethodInfos" type="USAGE"/>
+            <relationship source="XMIGenerator" target="RelationShips" type="USAGE"/>
+            <relationship source="XMIGenerator" target="ParameterInfos" type="USAGE"/>
+        </class>
+        <class modifiers="public" name="XMLGenerator">
+            <method modifiers="public static" name="generateXML" returnType="void">
+                <parameter name="project" type="ProjectInfos"/>
+                <parameter name="outputFilePath" type="String"/>
+            </method>
+            <relationship source="XMLGenerator" target="ProjectInfos" type="USAGE"/>
+        </class>
+        <class modifiers="public" name="XMLParser">
+            <method modifiers="public static" name="parseXML" returnType="ProjectInfos">
+                <parameter name="filePath" type="String"/>
+            </method>
+            <method modifiers="private static" name="parseClassElement" returnType="ClassInfos">
+                <parameter name="classElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseEnumElement" returnType="EnumInfos">
+                <parameter name="enumElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseFieldElement" returnType="FieldInfos">
+                <parameter name="fieldElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseMethodElement" returnType="MethodInfos">
+                <parameter name="methodElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseInterfaceElement" returnType="InterfaceInfos">
+                <parameter name="interfaceElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseAnnotationElement" returnType="AnnotationInfos">
+                <parameter name="annotationElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parsePackageElement" returnType="PackageInfos">
+                <parameter name="packageElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseRelationshipElement" returnType="RelationShips">
+                <parameter name="relationshipElement" type="Element"/>
+            </method>
+            <method modifiers="private static" name="parseParameterElement" returnType="ParameterInfos">
+                <parameter name="parameterElement" type="Element"/>
+            </method>
+            <relationship source="XMLParser" target="Element" type="USAGE"/>
+        </class>
+    </package>
+    <package name="org.mql.java.examples.annotations">
+        <annotation modifiers="public abstract interface" name="CustomAnnotation">
+            <metaAnnotation>Retention</metaAnnotation>
+        </annotation>
+    </package>
+    <package name="org.mql.java.examples.enums">
+        <enum modifiers="public final" name="ProductCategory">
+            <constant>CLOTHING</constant>
+            <constant>FOOD</constant>
+        </enum>
+        <enum modifiers="public final" name="Status">
+            <constant>ACTIVE</constant>
+            <constant>INACTIVE</constant>
+        </enum>
+    </package>
+    <package name="org.mql.java.examples.models">
+        <class modifiers="public" name="Address">
+            <field modifiers="private" name="country" type="String"/>
+            <field modifiers="private" name="city" type="String"/>
+            <field modifiers="private" name="street" type="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="getCountry" returnType="String"/>
+            <method modifiers="public" name="setCity" returnType="void">
+                <parameter name="city" type="String"/>
+            </method>
+            <method modifiers="public" name="getStreet" returnType="String"/>
+            <method modifiers="public" name="setStreet" returnType="void">
+                <parameter name="street" type="String"/>
+            </method>
+            <method modifiers="public" name="getCity" returnType="String"/>
+            <method modifiers="public" name="setCountry" returnType="void">
+                <parameter name="country" type="String"/>
+            </method>
+        </class>
+        <class modifiers="public" name="Person">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="age" type="int"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="setAge" returnType="void">
+                <parameter name="age" type="int"/>
+            </method>
+            <method modifiers="public" name="getAge" returnType="int"/>
+        </class>
+        <class modifiers="public" name="Product">
+            <field modifiers="private" name="name" type="String"/>
+            <field modifiers="private" name="price" type="double"/>
+            <field modifiers="private" name="category" type="ProductCategory"/>
+            <method modifiers="public" name="getName" returnType="String"/>
+            <method modifiers="public" name="toString" returnType="String"/>
+            <method modifiers="public" name="setName" returnType="void">
+                <parameter name="name" type="String"/>
+            </method>
+            <method modifiers="public" name="getPrice" returnType="double"/>
+            <method modifiers="public" name="setPrice" returnType="void">
+                <parameter name="price" type="double"/>
+            </method>
+            <method modifiers="public" name="getCategory" returnType="ProductCategory"/>
+            <method modifiers="public" name="setCategory" returnType="void">
+                <parameter name="category" type="ProductCategory"/>
+            </method>
+            <method modifiers="public" name="applyReduction" returnType="void">
+                <parameter name="reduction" type="Reduction"/>
+            </method>
+            <relationship source="Product" target="ProductCategory" type="COMPOSITION"/>
+            <relationship source="Product" target="Reduction" type="USAGE"/>
+        </class>
+        <class modifiers="public" name="Reduction">
+            <field modifiers="private" name="amount" type="double"/>
+            <method modifiers="public" name="setAmount" returnType="void">
+                <parameter name="amount" type="double"/>
+            </method>
+            <method modifiers="public" name="getAmount" returnType="double"/>
+        </class>
+        <class modifiers="public" name="ShoppingCart">
+            <field modifiers="private" name="products" type="List"/>
+            <method modifiers="public" name="addProduct" returnType="void">
+                <parameter name="product" type="Product"/>
+            </method>
+            <method modifiers="public" name="removeProduct" returnType="void">
+                <parameter name="product" type="Product"/>
+            </method>
+            <method modifiers="public" name="getProducts" returnType="List"/>
+            <relationship source="ShoppingCart" target="Product" type="AGGREGATION"/>
+        </class>
+        <class modifiers="public" name="User">
+            <extends>Person</extends>
+            <implements>Serializable</implements>
+            <field modifiers="private static final" name="serialVersionUID" type="long"/>
+            <field modifiers="private" name="status" type="Status"/>
+            <field modifiers="private" name="address" type="Address"/>
+            <field modifiers="private" name="cart" type="ShoppingCart"/>
+            <method modifiers="public" name="getAddress" returnType="Address"/>
+            <method modifiers="public" name="setCart" returnType="void">
+                <parameter name="cart" type="ShoppingCart"/>
+            </method>
+            <method modifiers="public" name="getStatus" returnType="Status"/>
+            <method modifiers="public" name="setAddress" returnType="void">
+                <parameter name="address" type="Address"/>
+            </method>
+            <method modifiers="public" name="getCart" returnType="ShoppingCart"/>
+            <method modifiers="public" name="setStatus" returnType="void">
+                <parameter name="status" type="Status"/>
+            </method>
+            <relationship source="User" target="Status" type="COMPOSITION"/>
+            <relationship source="User" target="Address" type="COMPOSITION"/>
+            <relationship source="User" target="ShoppingCart" type="AGGREGATION"/>
+        </class>
+    </package>
+</project>
